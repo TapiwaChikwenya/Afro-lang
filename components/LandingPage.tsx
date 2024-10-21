@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -9,46 +10,44 @@ export default function LandingPage() {
   return (
     <div className="flex flex-col min-h-screen">
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-14 items-center">
-          <div className="mr-4 hidden md:flex">
-            <Link className="mr-6 flex items-center space-x-2" href="/">
+        <div className="container mx-auto px-4 flex h-14 items-center justify-between">
+          <div className="flex items-center">
+            <Link className="flex items-center space-x-2" href="/">
               <Globe2 className="h-6 w-6" />
-              <span className="hidden font-bold sm:inline-block">Afro-language Learn</span>
+              <span className="font-bold hidden sm:inline-block">AfriKids Learn</span>
             </Link>
-            <nav className="flex items-center space-x-6 text-sm font-medium">
-              <Link href="#lessons">Lessons</Link>
-              <Link href="#quizzes">Quizzes</Link>
-              <Link href="#dictionary">Dictionary</Link>
-              <Link href="#contact">Contact</Link>
-            </nav>
           </div>
-          <Button className="ml-auto" variant="outline">Log in</Button>
-          <Button className="ml-2">Sign up</Button>
+          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+            <Link href="#lessons">Lessons</Link>
+            <Link href="#quizzes">Quizzes</Link>
+            <Link href="#dictionary">Dictionary</Link>
+            <Link href="#contact">Contact</Link>
+          </nav>
+          <div className="flex items-center space-x-2">
+            <Button variant="outline">Log in</Button>
+            <Button>Sign up</Button>
+          </div>
         </div>
       </header>
 
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center space-y-4 text-center">
-              <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
-                  Learn African Languages the Fun Way!
-                </h1>
-                <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
-                  Discover the rich cultures of Africa through interactive language lessons designed for kids.
-                </p>
-              </div>
-              <div className="space-x-4">
-                <Button className="bg-primary text-primary-foreground hover:bg-primary/90">Get Started</Button>
-                <Button variant="outline">Learn More</Button>
-              </div>
+          <div className="container mx-auto px-4 text-center">
+            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
+              Learn African Languages the Fun Way!
+            </h1>
+            <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400 mt-4">
+              Discover the rich cultures of Africa through interactive language lessons designed for kids.
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-4 mt-8">
+              <Button variant="default" size="lg">Get Started</Button>
+              <Button variant="outline" size="lg">Learn More</Button>
             </div>
           </div>
         </section>
 
         <section id="lessons" className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
-          <div className="container px-4 md:px-6">
+          <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
               Fun Interactive Lessons
             </h2>
@@ -82,31 +81,29 @@ export default function LandingPage() {
         </section>
 
         <section id="quizzes" className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center space-y-4 text-center">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Test Your Knowledge</h2>
-              <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
-                Challenge yourself with fun quizzes after each lesson and earn cool badges!
-              </p>
-              <Button className="bg-primary text-primary-foreground hover:bg-primary/90">Try a Quiz</Button>
-            </div>
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Test Your Knowledge</h2>
+            <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400 mt-4">
+              Challenge yourself with fun quizzes after each lesson and earn cool badges!
+            </p>
+            <Button variant="default" size="lg" className="mt-8">Try a Quiz</Button>
           </div>
         </section>
 
         <section id="dictionary" className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
-          <div className="container px-4 md:px-6">
+          <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
               Interactive Dictionary
             </h2>
             <div className="max-w-md mx-auto">
               <Input type="text" placeholder="Search for a word..." className="mb-4" />
-              <Button className="w-full">Search</Button>
+              <Button variant="default" className="w-full">Search</Button>
             </div>
           </div>
         </section>
 
         <section id="contact" className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
+          <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
               Get in Touch
             </h2>
@@ -114,22 +111,22 @@ export default function LandingPage() {
               <Input type="text" placeholder="Your Name" />
               <Input type="email" placeholder="Your Email" />
               <textarea
-                className="w-full h-32 px-3 py-2 text-gray-700 border rounded-lg focus:outline-none"
+                className="w-full h-32 px-3 py-2 text-gray-700 border rounded-lg focus:outline-none resize-none"
                 placeholder="Your Message"
               ></textarea>
-              <Button type="submit" className="w-full">Send Message</Button>
+              <Button type="submit" variant="default" className="w-full">Send Message</Button>
             </form>
           </div>
         </section>
       </main>
 
       <footer className="w-full py-6 bg-gray-100 dark:bg-gray-800">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-            <div className="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-2">
               <Globe2 className="h-6 w-6" />
-              <p className="text-center text-sm leading-loose md:text-left">
-                © 2024 Afro-language Learn. All rights reserved.
+              <p className="text-sm">
+                © 2024 AfriKids Learn. All rights reserved.
               </p>
             </div>
             <div className="flex gap-4">
@@ -143,5 +140,33 @@ export default function LandingPage() {
   )
 }
 
+export function DarkModeToggle() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
+  useEffect(() => {
+    const root = document.documentElement;
+    if (isDarkMode) {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+    }
+  }, [isDarkMode]);
 
+  return (
+    <button
+      onClick={() => setIsDarkMode(!isDarkMode)}
+      className="px-4 py-2 bg-primary text-primary-foreground rounded"
+    >
+      Toggle Dark Mode
+    </button>
+  );
+}
+function CustomButton({ variant = 'primary', children }: { variant?: 'primary' | 'secondary', children: React.ReactNode }) {
+  const className = `px-4 py-2 rounded font-bold ${
+    variant === 'primary'
+      ? 'bg-primary text-primary-foreground'
+      : 'bg-secondary text-secondary-foreground'
+  }`;
+
+  return <button className={className}>{children}</button>;
+}
