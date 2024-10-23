@@ -10,29 +10,35 @@ export default function LandingPage() {
   return (
     <div className="flex flex-col min-h-screen">
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container mx-auto px-4 flex h-14 items-center justify-between">
-          <div className="flex items-center">
-            <Link className="flex items-center space-x-2" href="/">
-              <Globe2 className="h-6 w-6" />
-              <span className="font-bold hidden sm:inline-block">AfriKids Learn</span>
-            </Link>
-          </div>
-          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
-            <Link href="#lessons">Lessons</Link>
-            <Link href="#quizzes">Quizzes</Link>
-            <Link href="#dictionary">Dictionary</Link>
-            <Link href="#contact">Contact</Link>
-          </nav>
-          <div className="flex items-center space-x-2">
-            <Button variant="outline">Log in</Button>
-            <Button>Sign up</Button>
+        <div className="container mx-auto px-4">
+          <div className="flex h-14 items-center justify-between">
+            <div className="flex items-center">
+              <Link className="flex items-center space-x-2" href="/">
+                <Globe2 className="h-6 w-6" />
+                <span className="font-bold hidden sm:inline-block">AfriKids Learn</span>
+              </Link>
+            </div>
+            <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+              <Link href="#lessons">Lessons</Link>
+              <Link href="#quizzes">Quizzes</Link>
+              <Link href="#dictionary">Dictionary</Link>
+              <Link href="#contact">Contact</Link>
+            </nav>
+            <div className="flex items-center space-x-2">
+              <Link href="/login">
+                <Button variant="outline">Log in</Button>
+              </Link>
+              <Link href="/signup">
+                <Button>Sign up</Button>
+              </Link>
+            </div>
           </div>
         </div>
       </header>
 
-      <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
-          <div className="container mx-auto px-4 text-center">
+      <main className="flex-1 flex flex-col items-center">
+        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 flex justify-center">
+          <div className="max-w-[1200px] w-full px-4 text-center">
             <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
               Learn African Languages the Fun Way!
             </h1>
@@ -46,8 +52,8 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section id="lessons" className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
-          <div className="container mx-auto px-4">
+        <section id="lessons" className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800 flex justify-center">
+          <div className="max-w-[1200px] w-full px-4">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
               Fun Interactive Lessons
             </h2>
@@ -80,8 +86,8 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section id="quizzes" className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container mx-auto px-4 text-center">
+        <section id="quizzes" className="w-full py-12 md:py-24 lg:py-32 flex justify-center">
+          <div className="max-w-[1200px] w-full px-4 text-center">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Test Your Knowledge</h2>
             <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400 mt-4">
               Challenge yourself with fun quizzes after each lesson and earn cool badges!
@@ -90,8 +96,8 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section id="dictionary" className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
-          <div className="container mx-auto px-4">
+        <section id="dictionary" className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800 flex justify-center">
+          <div className="max-w-[1200px] w-full px-4">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
               Interactive Dictionary
             </h2>
@@ -102,8 +108,8 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section id="contact" className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container mx-auto px-4">
+        <section id="contact" className="w-full py-12 md:py-24 lg:py-32 flex justify-center">
+          <div className="max-w-[1200px] w-full px-4">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
               Get in Touch
             </h2>
@@ -170,3 +176,9 @@ function CustomButton({ variant = 'primary', children }: { variant?: 'primary' |
 
   return <button className={className}>{children}</button>;
 }
+
+// index.js or LandingPage.js
+
+
+
+
